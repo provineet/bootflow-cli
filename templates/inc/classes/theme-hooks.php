@@ -1,4 +1,7 @@
 <?php
+namespace {{namespace}};
+
+defined('ABSPATH') || exit;
 /**
  * Our theme hooks.
  *
@@ -7,9 +10,7 @@
  * @package {{name}}
  * @since {{version}}
  */
-namespace {{namespace}};
 
-defined('ABSPATH') || exit;
 
 class Theme_Hooks
 {

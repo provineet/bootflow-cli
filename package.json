@@ -1,7 +1,7 @@
 {
 	"name": "bootflow-cli",
 	"description": "A zero configuration dev-toolkit for WordPress Theme Developers.",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"license": "MIT",
 	"bin": {
 		"bootflow": "index.js",
@@ -13,8 +13,12 @@
 		"url": "https://blogohblog.com"
 	},
 	"keywords": [
-		"bootflow",
-		"vineetverma"
+        "bootflow cli",
+        "bootflow theme",
+		"wordpress developer theme",
+		"wordpress starter theme",
+        "wordpress bootstrap theme",
+        "wordpress scaffolding theme"
 	],
 	"files": [
 		"index.js",
@@ -24,11 +28,13 @@
 		"format": "prettier --write \"./**/*.{js,json}\""
 	},
 	"dependencies": {
+		"await-to-js": "^3.0.0",
 		"chalk": "^4.1.1",
 		"cli-alerts": "^1.2.2",
 		"cli-handle-error": "^4.4.0",
 		"cli-handle-unhandled": "^1.1.1",
 		"cli-meow-help": "^2.0.2",
+		"cli-should-cancel": "^1.0.3",
 		"cli-welcome": "^2.2.2",
 		"copy-template-dir": "^1.4.0",
 		"enquirer": "^2.3.6",

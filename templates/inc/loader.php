@@ -1,14 +1,15 @@
 <?php
+
+namespace {{namespace}};
+
+defined('ABSPATH') || exit;
+
 /**
  * Load dependencies and bootstraps our theme
  *
  * @package {{name}}
  * @since {{version}}
  */
-
-namespace {{namespace}};
-
-defined('ABSPATH') || exit;
 
 class Loader{
 

@@ -1,4 +1,7 @@
 <?php
+namespace {{namespace}};
+
+defined('ABSPATH') || exit;
 
 /**
  * Our theme setup class
@@ -8,10 +11,6 @@
  * @package {{name}}
  * @since {{version}}
  */
-
-namespace {{namespace}};
-
-defined('ABSPATH') || exit;
 
 class Theme_Setup
 {

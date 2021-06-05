@@ -1,4 +1,8 @@
 <?php
+namespace {{namespace}};
+
+defined('ABSPATH') || exit;
+
 /**
  * Our theme Template Functions Class
  *
@@ -6,9 +10,6 @@
  * @since {{version}}
  */
 
-namespace {{namespace}};
-
-defined('ABSPATH') || exit;
 
 class Template_Functions{
 

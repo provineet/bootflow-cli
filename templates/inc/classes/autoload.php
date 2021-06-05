@@ -1,14 +1,14 @@
 <?php
+namespace {{namespace}};
+
+defined('ABSPATH') || exit;
+
 /**
  * Autoloader for our php classes
  *
  * @package {{name}}
  * @since {{version}}
  */
-
-namespace {{namespace}};
-
-defined('ABSPATH') || exit;
 
 class Autoload{
 

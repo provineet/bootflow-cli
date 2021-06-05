@@ -2,8 +2,6 @@ const welcome = require('cli-welcome');
 const pkg = require('./../package.json');
 const unhandled = require('cli-handle-unhandled');
 
-const inputs = require('./inputs');
-
 module.exports = ({ clear = true }) => {
 	unhandled();
 	welcome({
@@ -16,5 +14,4 @@ module.exports = ({ clear = true }) => {
 		bold: true,
 		clear
 	});
-	inputs();
 };

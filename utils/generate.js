@@ -5,6 +5,9 @@ const alert = require('cli-alerts');
 const fs = require('fs');
 const { Confirm } = require('enquirer');
 const shouldCancel = require('cli-should-cancel');
+const ora = require('ora');
+
+const spinner = ora({ text: '' });
 
 module.exports = async vars => {
 	const outDir = vars.name.split(' ')[0];
@@ -39,16 +42,17 @@ module.exports = async vars => {
 		!proceed && shouldCancel();
 	}
 
+	console.log();
+	spinner.text = 'Generating your theme files...\n';
+	spinner.start();
 	copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
 		if (err) throw err;
-		console.log(
-			d(`\nCreating ${createdFiles.length} files in ${g(`./${outDir}`)}`)
-		);
 
 		alert({
 			type: 'success',
 			name: 'All Done',
-			msg: `\n\nCreated ${outDir} theme folder at ${outDirPath}.`
+			msg: `\n\nCreated theme folder "${outDir}" with ${createdFiles.length} files at ${outDirPath}.\n\n`
 		});
+		spinner.stop();
 	});
 };

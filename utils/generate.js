@@ -15,11 +15,7 @@ module.exports = async vars => {
 	let outDirPath = process.cwd();
 
 	// if npm module is installed within wp-content directory output theme inside themes folder else output inside dist directory of the npm module
-	if (fs.existsSync(path.join(outDirPath, '../themes'))) {
-		outDirPath = path.join(outDirPath, '../themes', outDir);
-	} else {
-		outDirPath = path.join(outDirPath, 'dist', outDir);
-	}
+	outDirPath = path.join(outDirPath, 'themes', outDir);
 
 	vars = {
 		reqWP: '5.3',

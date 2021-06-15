@@ -1,4 +1,4 @@
-![WordPress Scaffolding Theme Generator](./bootflow-cli.png)
+![WordPress Scaffolding Theme Generator](https://raw.githubusercontent.com/provineet/bootflow-cli/master/bootflow-cli.png)
 
 # BOOTFLOW-CLI : A WordPress Developer Toolkit
 
@@ -37,7 +37,7 @@ You will be asked a few questions to generate your theme files, answer them corr
 
 <br>
 
-![Bootflow-cli installation](./bootflow-cli-install.gif)
+![Bootflow-cli installation](https://raw.githubusercontent.com/provineet/bootflow-cli/master/bootflow-cli-install.gif)
 
 ## The Generated WordPress Theme
 

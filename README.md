@@ -90,4 +90,4 @@ Generated Developer WordPress theme supports:
         └── style.css
 ```
 
-### ✏️ Further instructions on how to use the generated theme can be found at <a href="https://github.com/provineet/bootflow/">Bootflow Github Repo.</a>
+### 📖 Generate Theme Documentation : <a href="https://github.com/provineet/bootflow/">Bootflow Github Repo.</a>

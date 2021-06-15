@@ -5,7 +5,7 @@ const unhandled = require('cli-handle-unhandled');
 module.exports = ({ clear = true }) => {
 	unhandled();
 	welcome({
-		title: `BootFlow`,
+		title: `BootFlow-CLI`,
 		tagLine: `by vineetverma`,
 		description: pkg.description,
 		version: pkg.version,

@@ -1,7 +1,7 @@
 {
 	"name": "bootflow-cli",
 	"description": "A zero configuration dev-toolkit for WordPress Theme Developers.",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"license": "MIT",
 	"bin": {
 		"bootflow": "index.js",
@@ -23,7 +23,7 @@
 	"files": [
 		"index.js",
 		"utils",
-        "templates"
+		"templates"
 	],
 	"scripts": {
 		"format": "prettier --write \"./**/*.{js,json}\""
@@ -41,7 +41,8 @@
 		"enquirer": "^2.3.6",
 		"meow": "^9.0.0",
 		"ora": "^5.4.0",
-		"semver": "^7.3.5"
+		"semver": "^7.3.5",
+		"shelljs": "^0.8.4"
 	},
 	"devDependencies": {
 		"prettier": "^2.3.0"

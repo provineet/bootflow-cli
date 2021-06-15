@@ -38,17 +38,14 @@ module.exports = async vars => {
 		!proceed && shouldCancel();
 	}
 
-	console.log();
-	spinner.text = 'Generating your theme files...\n';
-	spinner.start();
-	copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
-		if (err) throw err;
+	return new Promise((resolve, reject) => {
+		console.log();
+		spinner.start(`${y(`Generating your theme files...\n`)}`);
+		copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
+			if (err) reject(err);
 
-		alert({
-			type: 'success',
-			name: 'All Done',
-			msg: `\n\nCreated theme folder "${outDir}" with ${createdFiles.length} files at ${outDirPath}.\n\n`
+			spinner.succeed(`${g(`THEME FILES GENERATED!!!`)}\n\n`);
+			resolve(outDirPath);
 		});
-		spinner.stop();
 	});
 };

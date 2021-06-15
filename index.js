@@ -12,6 +12,9 @@ const cli = require('./utils/cli');
 const log = require('./utils/log');
 const inputs = require('./utils/inputs');
 const generate = require('./utils/generate');
+const themeDeps = require('./utils/themedeps');
+const handleError = require('cli-handle-error');
+const to = require('await-to-js').default;
 
 const input = cli.input;
 const flags = cli.flags;
@@ -25,7 +28,12 @@ const { clear, debug } = flags;
 	const response = await inputs();
 
 	// generate files
-	generate(response);
+	const [err, themeDir] = await to(generate(response));
+
+	handleError('INPUT', err);
+
+	// installing NPM dependencies for our theme
+	await themeDeps(themeDir);
 
 	debug && log(flags);
 })();

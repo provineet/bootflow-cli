@@ -20,6 +20,8 @@ module.exports = dirName => {
 		function (code, stdout, stderr) {
 			if (code == 0) {
 				spinner.succeed(`${g(`THEME DEPENDENCIES INSTALLED...`)}`);
+
+                alert({type: `success`, msg: `Alright Sparky, Now create something amazing.`, name: `ALL DONE`});
 			} else {
 				spinner.fail(
 					`${r(

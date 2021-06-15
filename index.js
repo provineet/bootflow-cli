@@ -33,7 +33,7 @@ const { clear, debug } = flags;
 	handleError('INPUT', err);
 
 	// installing NPM dependencies for our theme
-	await themeDeps(themeDir);
+	themeDeps(themeDir);
 
 	debug && log(flags);
 })();

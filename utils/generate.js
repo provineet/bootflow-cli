@@ -44,7 +44,7 @@ module.exports = async vars => {
 		copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
 			if (err) reject(err);
 
-			spinner.succeed(`${g(`THEME FILES GENERATED!!!`)}\n\n`);
+			spinner.succeed(`${g(`THEME FILES GENERATED!!!`)}\n`);
 			resolve(outDirPath);
 		});
 	});

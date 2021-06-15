@@ -17,7 +17,6 @@ A WordPress developer toolkit that kickstarts your next WordPress theme developm
 </tbody></table>
 
 ![Version: v1.0.0](https://img.shields.io/github/package-json/v/provineet/bootplate?style=flat-square)
-![file](https://img.shields.io/github/repo-size/provineet/bootplate?color=green&label=footprint&style=flat-square)
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/provineet/bootplate/main?style=flat-square)
 ![Maintainer](https://img.shields.io/badge/maintainer-%40provineet-blue?style=flat-square)
 <br>

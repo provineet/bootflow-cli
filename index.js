@@ -20,12 +20,17 @@ const input = cli.input;
 const flags = cli.flags;
 const { clear, debug } = flags;
 
-(async () => {
+const bootFlow = async () => {
 	init({ clear });
 	input.includes(`help`) && cli.showHelp(0);
 
 	// take user inputs
 	const response = await inputs();
+
+	if (response === 'Restart') {
+		await bootFlow();
+		return;
+	}
 
 	// generate files
 	const [err, themeDir] = await to(generate(response));
@@ -36,4 +41,6 @@ const { clear, debug } = flags;
 	themeDeps(themeDir);
 
 	debug && log(flags);
-})();
+};
+
+bootFlow();

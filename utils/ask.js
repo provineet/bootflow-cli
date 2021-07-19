@@ -19,7 +19,8 @@ const confirm = async ({ message }) => {
 					value: false
 				}
 			],
-			initial: 0
+			initial: 0,
+			hinr: 'this is some hint'
 		})
 			.on(`cancel`, () => shouldCancel())
 			.run()
@@ -29,7 +30,23 @@ const confirm = async ({ message }) => {
 	return response;
 };
 
-const ask = async ({ message, initial, hint, validate }) => {
+const choice = async ({ name, message, hint, choices }) => {
+	const [err, response] = await to(
+		new Select({
+			name,
+			message,
+			choices,
+			hint
+		})
+			.on(`cancel`, () => shouldCancel())
+			.run()
+	);
+	handleError('Choice Error: ', err);
+
+	return response;
+};
+
+const simpleText = async ({ message, initial, hint, validate }) => {
 	const [err, response] = await to(
 		new Input({
 			message,
@@ -45,4 +62,4 @@ const ask = async ({ message, initial, hint, validate }) => {
 	return response;
 };
 
-module.exports = { confirm, ask };
+module.exports = { confirm, simpleText, choice };

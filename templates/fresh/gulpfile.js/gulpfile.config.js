@@ -34,12 +34,12 @@ module.exports = {
 			images: './assets/images'
 		},
 		src: {
-			folder: './assets_src',
-			scss: './assets_src/scss',
-			js: './assets_src/js',
-			images: './assets_src/images',
-			fonts: './assets_src/webfonts',
-			sprites: './assets_src/sprite_images'
+			folder: './{{src}}',
+			scss: './{{src}}/scss',
+			js: './{{src}}/js',
+			images: './{{src}}/images',
+			fonts: './{{src}}/webfonts',
+			sprites: './{{src}}/sprite_images'
 		},
 		dist: './dist',
 		devdist: './dev-dist',
@@ -50,7 +50,7 @@ module.exports = {
 		'.**/*',
 		'./node_modules/**',
 		'./vendor/**',
-		'./assets_src/**',
+		'./{{src}}/**',
 		'./assets/**/maps/**',
 		'./assets/**/maps/**/*.map',
 		'readme.md',

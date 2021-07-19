@@ -26,17 +26,7 @@ const setDirectories = async (userInputs, themeFolder = null) => {
 	return [outDirPath, inDirPath];
 };
 
-module.exports = async userInputs => {
-	userInputs = {
-		reqWP: '5.3',
-		reqPHP: '7.2',
-		src: 'assets_src',
-		inc: 'inc',
-		...userInputs
-	};
-
-	[outDirPath, inDirPath] = await setDirectories(userInputs);
-
+const checkFolder = async (userInputs, outDirPath) => {
 	if (userInputs.itype == 'Fresh Installation' && fs.existsSync(outDirPath)) {
 		const proceed = await choice({
 			name: 'question',
@@ -54,13 +44,56 @@ module.exports = async userInputs => {
 		if (proceed === 'Overwrite') {
 			outDir = await simpleText({
 				message: 'Theme Folder Name',
-				hint: `Rename theme folder name.`,
-				validate
+				hint: `Rename theme folder name.`
 			});
 		}
-	}
+	} else if (fs.existsSync(path.join(outDirPath, 'assets_src'))) {
+		const proceed = await choice({
+			name: 'question',
+			message: `${r(
+				`\n\nStatic Assets Source folder 'assets_src' already exists within your theme folder. `
+			)}\n${y(
+				`Choose Continue to overwrite | Rename to rename the assets_src folder | Cancel to bail out.`
+			)}`,
+			choices: ['Overwrite', 'Rename', 'Cancel'],
+			hint: `Use arrow key to change option type`
+		});
 
-	console.log(outDirPath, inDirPath);
+		proceed === 'Cancel' && shouldCancel();
+
+		if (proceed === 'Rename') {
+			userInputs.src = await simpleText({
+				message: 'Assets Folder Name',
+				hint: `Rename 'assets_src' folder Name`
+			});
+		}
+	} else if (fs.existsSync(path.join(outDirPath, 'package.json'))) {
+		const proceed = await choice({
+			name: 'question',
+			message: `${r(
+				`\n\nPackage.json file already exists within your theme folder. `
+			)}\n${y(`Choose Continue to overwrite | Cancel to bail out.`)}`,
+			choices: ['Overwrite', 'Cancel'],
+			hint: `Use arrow key to change option type`
+		});
+
+		proceed === 'Cancel' && shouldCancel();
+	}
+};
+
+module.exports = async userInputs => {
+	userInputs = {
+		reqWP: '5.3',
+		reqPHP: '7.2',
+		src: 'assets_src',
+		inc: 'inc',
+		...userInputs
+	};
+
+	[outDirPath, inDirPath] = await setDirectories(userInputs);
+
+	// check if the theme folder or files already exists
+	await checkFolder(userInputs, outDirPath);
 
 	return new Promise((resolve, reject) => {
 		console.log();

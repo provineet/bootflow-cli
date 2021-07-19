@@ -9,33 +9,35 @@ const ora = require('ora');
 
 const spinner = ora({ text: '' });
 
-const setDirectories = async (vars, themeFolder = null) => {
-	const outDir = themeFolder == null ? vars.name.split(' ')[0] : themeFolder;
+const setDirectories = async (userInputs, themeFolder = null) => {
+	const outDir =
+		themeFolder == null
+			? userInputs.name.split(' ')[0].toLowerCase()
+			: themeFolder;
 	// version is available only in fresh installations
-	if (vars.version) {
+	if (userInputs.version) {
 		outDirPath = path.join(process.cwd(), outDir);
 		inDirPath = path.join(__dirname, '../', 'templates/fresh');
 	} else {
-		outDirPath =
-			vars.isThemesFolder === false
-				? path.join(process.cwd(), outDir)
-				: process.cwd();
+		outDirPath = process.cwd();
 		inDirPath = path.join(__dirname, '../', 'templates/existing');
 	}
 
 	return [outDirPath, inDirPath];
 };
 
-module.exports = async vars => {
-	vars = {
+module.exports = async userInputs => {
+	userInputs = {
 		reqWP: '5.3',
 		reqPHP: '7.2',
-		...vars
+		src: 'assets_src',
+		inc: 'inc',
+		...userInputs
 	};
 
-	[outDirPath, inDirPath] = await setDirectories(vars);
+	[outDirPath, inDirPath] = await setDirectories(userInputs);
 
-	if (vars.itype == 'Fresh Installation' && fs.existsSync(outDirPath)) {
+	if (userInputs.itype == 'Fresh Installation' && fs.existsSync(outDirPath)) {
 		const proceed = await choice({
 			name: 'question',
 			message: `${r(
@@ -56,34 +58,14 @@ module.exports = async vars => {
 				validate
 			});
 		}
-	} else if (fs.existsSync(path.join(outDirPath, 'assets_src'))) {
-		const proceed = await choice({
-			name: 'question',
-			message: `${r(
-				`\n\nStatic Assets Source folder 'assets_src' already exists in your theme. `
-			)}\n${y(
-				`Choose Continue to overwrite | Rename to rename our assets source folder | Cancel to bail out.`
-			)}`,
-			choices: ['Overwrite', 'Rename', 'Cancel'],
-			hint: `Use arrow key to change option type`
-		});
-
-		proceed === 'Cancel' && shouldCancel();
-
-		if (proceed === 'Overwrite') {
-			vars.assetssrc = await simpleText({
-				message: 'Assets Folder Name',
-				hint: `Rename 'assets_src' folder Name`,
-				validate
-			});
-		}
 	}
+
 	console.log(outDirPath, inDirPath);
-	shouldCancel();
+
 	return new Promise((resolve, reject) => {
 		console.log();
 		spinner.start(`${y(`Generating your theme files...\n`)}`);
-		copy(inDirPath, outDirPath, vars, (err, createdFiles) => {
+		copy(inDirPath, outDirPath, userInputs, (err, createdFiles) => {
 			if (err) reject(err);
 
 			spinner.succeed(`${g(`THEME FILES GENERATED!!!`)}\n`);

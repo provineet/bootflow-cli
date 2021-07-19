@@ -21,7 +21,11 @@ module.exports = dirName => {
 			if (code == 0) {
 				spinner.succeed(`${g(`THEME DEPENDENCIES INSTALLED...`)}`);
 
-                alert({type: `success`, msg: `Alright Sparky, Now create something amazing.`, name: `ALL DONE`});
+				alert({
+					type: `success`,
+					msg: `Alright Sparky, Now create something amazing.\n\nTo start working with the theme checkout the Documentation here: https://github.com/provineet/bootflow/`,
+					name: `ALL DONE`
+				});
 			} else {
 				spinner.fail(
 					`${r(

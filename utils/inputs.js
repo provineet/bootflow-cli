@@ -3,7 +3,6 @@ const { blue: b, dim: d, yellow: y, red: r } = require('chalk');
 
 const { confirm, simpleText, choice } = require('./ask');
 const validations = require('./validations');
-const isThemesFolder = require('./checkfolder');
 
 let validate = validations.notEmpty;
 
@@ -15,8 +14,6 @@ const inputs = async () => {
 		choices: ['Fresh Installation', 'Exisiting Theme Installation'],
 		hint: `Use arrow key to change option type`
 	});
-
-	await isThemesFolder(iType);
 
 	// take user inputs
 	const userInputs =
@@ -31,10 +28,9 @@ const inputs = async () => {
 
 	if (confirmInputs === 'Yes') {
 		userInputs.itype = iType;
-		userInputs.namespace = userInputs.name.split(' ')[0];
+		themeNameArr = userInputs.name.split(' ')[0];
 		userInputs.namespace =
-			userInputs.namespace[0].toUpperCase() +
-			userInputs.namespace.slice(1);
+			themeNameArr[0].toUpperCase() + themeNameArr.slice(1);
 		return userInputs;
 	} else if (confirmInputs === 'Restart') {
 		return 'Restart';

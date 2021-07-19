@@ -16,8 +16,9 @@ A WordPress developer toolkit that kickstarts your next WordPress theme developm
     </tr>
 </tbody></table>
 
-![Version: v1.1.0](https://img.shields.io/github/package-json/v/provineet/bootplate?style=flat-square)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/provineet/bootplate/main?style=flat-square)
+![Version: v1.1.0](https://img.shields.io/npm/v/bootflow-cli?label=version&style=flat-square)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/provineet/bootflow-cli/1.0.0?style=flat-square)
+![License](https://img.shields.io/npm/l/bootflow-cli)
 ![Maintainer](https://img.shields.io/badge/maintainer-%40provineet-blue?style=flat-square)
 <br>
 
@@ -28,6 +29,16 @@ Bootflow-cli scaffolds a starter WordPress theme inside your wp-content/themes f
 You can just start using modern development tools and plugins in your WordPress theme Development Stack with almost no-configuration involved.
 
 ## ⚡️ Quick Installation
+
+### &nbsp; &nbsp; &nbsp; &nbsp; [▶️ Create a Fresh Bootflow Theme](/#fresh)
+
+### &nbsp; &nbsp; &nbsp; &nbsp; [▶️ Integrate Bootflow In An Existing Theme](/#fresh)
+
+<br>
+
+<a name="fresh"></a>
+
+### ⚡️ Create a Fresh Theme
 
 Go your terminal and cd to your local wp-content directory, where you want to start developing the theme and run the below given npx command:
 
@@ -89,5 +100,15 @@ Generated Developer WordPress theme supports:
         ├── screenshot.png
         └── style.css
 ```
+
+### ⚡️ Integrate Bootflow In An Existing Theme
+
+Start using SCSS, WebPack, Gulp, NPM workflow in your exisiting WordPress theme.
+
+Go to the terminal and cd to the WordPress theme directory in which you want to integrate Bootflow and run the below given npx command:
+
+`npx bootflow-cli`
+
+Complete the questions asked to integrate the workflow and you are done.
 
 ### 📖 Generated Theme Documentation : <a href="https://github.com/provineet/bootflow/">Bootflow Github Repo.</a>

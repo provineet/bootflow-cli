@@ -30,9 +30,9 @@ You can just start using modern development tools and plugins in your WordPress 
 
 ## ⚡️ Quick Installation
 
-### &nbsp; &nbsp; &nbsp; &nbsp; [▶️ Create a Fresh Bootflow Theme](/#fresh)
+### &nbsp; &nbsp; &nbsp; &nbsp; [▶️ Create a Fresh Bootflow Theme](#fresh)
 
-### &nbsp; &nbsp; &nbsp; &nbsp; [▶️ Integrate Bootflow In An Existing Theme](/#fresh)
+### &nbsp; &nbsp; &nbsp; &nbsp; [▶️ Integrate Bootflow In An Existing Theme](#existing)
 
 <br>
 
@@ -100,6 +100,8 @@ Generated Developer WordPress theme supports:
         ├── screenshot.png
         └── style.css
 ```
+
+<a name="existing"></a>
 
 ### ⚡️ Integrate Bootflow In An Existing Theme
 

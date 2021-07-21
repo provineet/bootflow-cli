@@ -1,7 +1,7 @@
 {
   "name": "bootflow-cli",
   "description": "A zero configuration dev-toolkit for WordPress Theme Developers.",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "license": "MIT",
   "bin": {
     "bootflow": "index.js",

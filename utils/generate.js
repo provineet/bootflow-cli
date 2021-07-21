@@ -1,11 +1,10 @@
-const copy = require('copy-template-dir');
-const path = require('path');
-const { green: g, dim: d, red: r, yellow: y } = require('chalk');
-const alert = require('cli-alerts');
 const fs = require('fs');
-const { simpleText, choice } = require('./ask');
-const shouldCancel = require('cli-should-cancel');
 const ora = require('ora');
+const path = require('path');
+const copy = require('copy-template-dir');
+const shouldCancel = require('cli-should-cancel');
+const { green: g, dim: d, red: r, yellow: y } = require('chalk');
+const { simpleText, choice } = require('./ask');
 
 const spinner = ora({ text: '' });
 

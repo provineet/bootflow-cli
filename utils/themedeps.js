@@ -6,6 +6,9 @@ const alert = require('cli-alerts');
 const spinner = ora({ text: '' });
 
 module.exports = dirName => {
+	// Bug Fix: escape space in directory path
+	dirName = dirName.replace(/(\s+)/g, '\\$1');
+
 	// return new Promise((resolve, reject) => {
 	spinner.start(
 		`${y(`INSTALLING THEME DEPENDENCIES...`)}\n\n${d(

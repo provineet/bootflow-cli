@@ -25,10 +25,6 @@ const setDirectories = async (userInputs, themeFolder = null) => {
 		inDirPath = path.join(__dirname, '../', 'templates/existing');
 	}
 
-	// Bug Fix: escape space in directory path
-	outDirPath = outDirPath.replace(/(\s+)/g, '\\$1');
-	inDirPath = inDirPath.replace(/(\s+)/g, '\\$1');
-
 	return [inDirPath, outDirPath, outDirName];
 };
 

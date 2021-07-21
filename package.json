@@ -1,14 +1,14 @@
 {
   "name": "bootflow-cli",
   "description": "A zero configuration dev-toolkit for WordPress Theme Developers.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "bin": {
     "bootflow": "index.js",
     "bfl": "index.js"
   },
   "author": {
-    "name": "vineetverma",
+    "name": "Vineet Verma",
     "email": "vineet@blogohblog.com",
     "url": "https://blogohblog.com"
   },

@@ -10,43 +10,42 @@ const ora = require('ora');
 const spinner = ora({ text: '' });
 
 const setDirectories = async (userInputs, themeFolder = null) => {
-	const outDir =
+	const outDirName =
 		themeFolder == null
 			? userInputs.name.split(' ')[0].toLowerCase()
 			: themeFolder;
+	let inDirPath = '',
+		outDirPath = '';
 	// version is available only in fresh installations
 	if (userInputs.version) {
-		outDirPath = path.join(process.cwd(), outDir);
+		outDirPath = path.join(process.cwd(), outDirName);
 		inDirPath = path.join(__dirname, '../', 'templates/fresh');
 	} else {
 		outDirPath = process.cwd();
 		inDirPath = path.join(__dirname, '../', 'templates/existing');
 	}
 
-	return [outDirPath, inDirPath];
+	// Bug Fix: escape space in directory path
+	outDirPath = outDirPath.replace(/(\s+)/g, '\\$1');
+	inDirPath = inDirPath.replace(/(\s+)/g, '\\$1');
+
+	return [inDirPath, outDirPath, outDirName];
 };
 
-const checkFolder = async (userInputs, outDirPath) => {
+const checkFolder = async (userInputs, outDirPath, outDirName) => {
 	if (userInputs.itype == 'Fresh Installation' && fs.existsSync(outDirPath)) {
 		const proceed = await choice({
 			name: 'question',
 			message: `${r(
-				`\n\nTheme folder \"${outDir}\" already exists.`
+				`\n\nTheme \"${outDirName}\" already exists in your wp-content/themes folder.`
 			)}\n${y(
 				`Do you want to continue, it will overwrite the existing folder?`
 			)}`,
-			choices: ['Overwrite', 'Rename', 'Cancel'],
+			choices: ['Overwrite', 'Cancel'],
 			hint: `Use arrow key to change option type`
 		});
 
 		proceed === 'Cancel' && shouldCancel();
-
-		if (proceed === 'Overwrite') {
-			outDir = await simpleText({
-				message: 'Theme Folder Name',
-				hint: `Rename theme folder name.`
-			});
-		}
 	} else if (fs.existsSync(path.join(outDirPath, 'assets_src'))) {
 		const proceed = await choice({
 			name: 'question',
@@ -90,10 +89,10 @@ module.exports = async userInputs => {
 		...userInputs
 	};
 
-	[outDirPath, inDirPath] = await setDirectories(userInputs);
+	[inDirPath, outDirPath, outDirName] = await setDirectories(userInputs);
 
 	// check if the theme folder or files already exists
-	await checkFolder(userInputs, outDirPath);
+	await checkFolder(userInputs, outDirPath, outDirName);
 
 	return new Promise((resolve, reject) => {
 		console.log();

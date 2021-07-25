@@ -17,8 +17,8 @@ A WordPress developer toolkit that kickstarts your next WordPress theme developm
 </tbody></table>
 
 ![Version: v1.1.0](https://img.shields.io/npm/v/bootflow-cli?label=version&style=flat-square)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/provineet/bootflow-cli/1.0.0?style=flat-square)
-![License](https://img.shields.io/npm/l/bootflow-cli)
+![License](https://img.shields.io/npm/l/bootflow-cli?style=flat-square)
+![npm](https://img.shields.io/npm/dt/bootflow-cli?style=flat-square)
 ![Maintainer](https://img.shields.io/badge/maintainer-%40provineet-blue?style=flat-square)
 <br>
 

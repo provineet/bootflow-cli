@@ -114,3 +114,11 @@ Go to the terminal and cd to the WordPress theme directory in which you want to 
 Complete the questions asked to integrate the workflow and you are done.
 
 ### 📖 Generated Theme Documentation : <a href="https://github.com/provineet/bootflow/">Bootflow Github Repo.</a>
+
+<br>
+<blockquote>
+Have a query?
+
+Catch me on twitter 🐦 <a href="https://twitter.com/mrvineetverma">@mrvineetverma</a>
+
+</blockquote>
